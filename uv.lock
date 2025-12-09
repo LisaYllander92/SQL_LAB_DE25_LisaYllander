@@ -322,6 +322,9 @@ wheels = [
 ]
 
 [package.optional-dependencies]
+duckdb = [
+    { name = "duckdb" },
+]
 sql-database = [
     { name = "sqlalchemy" },
 ]
@@ -1447,7 +1450,7 @@ name = "sql-lab-de25-lisa-yllander"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
-    { name = "dlt", extra = ["sql-database"] },
+    { name = "dlt", extra = ["duckdb", "sql-database"] },
     { name = "duckdb" },
     { name = "ipykernel" },
     { name = "matplotlib" },
@@ -1456,7 +1459,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "dlt", extras = ["sql-database"], specifier = ">=1.19.1" },
+    { name = "dlt", extras = ["duckdb", "sql-database"], specifier = ">=1.19.1" },
     { name = "duckdb", specifier = ">=1.4.2" },
     { name = "ipykernel", specifier = ">=7.1.0" },
     { name = "matplotlib", specifier = ">=3.10.7" },
