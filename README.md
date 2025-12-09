@@ -24,5 +24,8 @@ https://duckdb.org/docs/stable/sql/functions/pattern_matching
 Aggregations:
 https://www.youtube.com/watch?v=4U7tAck5zUA 
 
+Plotting:
+https://www.youtube.com/watch?v=nFbKOa-_YKw
+
 ## Sakila database
 ![Table overview](Sakila_overview.png)
