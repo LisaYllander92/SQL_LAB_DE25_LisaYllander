@@ -3,7 +3,7 @@
 ## Films in sakila
 
 ```sql films
-from sakila.film;
-
-
-```
+  select
+      title
+  from sakila.film
+  ```
