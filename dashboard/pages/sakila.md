@@ -3,7 +3,6 @@
 ## Films in sakila
 
 ```sql films
-  select
-      title
-  from sakila.film
+
+  from sakila.sakila
   ```

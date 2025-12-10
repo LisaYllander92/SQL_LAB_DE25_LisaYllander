@@ -1,1 +1,1 @@
-select * from orders
+select * from staging.film;
