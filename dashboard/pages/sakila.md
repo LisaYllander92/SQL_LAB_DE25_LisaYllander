@@ -59,8 +59,28 @@ LIMIT 10
                  COUNT(rental_id)
              FROM
                  rental)), 2) AS percentage_rental
-    FROM categorys
+    FROM categories
     GROUP BY category
     ORDER BY percentage_rental DESC
+    LIMIT 5
 ```
+### Top 5 customers:
+```top_customers
+    SELECT 
+        customer,
+        SUM(amount) AS total_spent_USD
+    FROM customers
+    GROUP BY customer
+    ORDER BY total_spent_USD DESC
+    LIMIT 5
+```
+<BarChart
+    data={top_customers}
+    title="Top 5 customers measured by total amount spent"
+    x=customer
+    y=total_spent_USD
+/>
+
+
+
 

@@ -25,6 +25,12 @@ This repo is for the LAB in the SQL course where we'll be working with the sakil
 - Aggregation functions:
     - https://www.youtube.com/watch?v=4U7tAck5zUA 
 
+- Converting:
+    - https://www.w3schools.com/sql/func_sqlserver_cast.asp 
+
+- SUbquery:
+    - https://www.youtube.com/watch?v=aZQtKjWfaDw 
+
 - Joins:
     - https://www.w3schools.com/sql/sql_join.asp
 
