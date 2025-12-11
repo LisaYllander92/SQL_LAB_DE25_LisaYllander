@@ -75,6 +75,42 @@ LIMIT 10
     LIMIT 5
 ```
 
+```sql rentals
+    SELECT
+        EXTRACT(HOUR FROM rental_date) AS rental_hour,
+        CASE
+        WHEN EXTRACT(HOUR FROM rental_date) BETWEEN 6 AND 11 THEN 'Morning (06-11)'
+        WHEN EXTRACT(HOUR FROM rental_date) BETWEEN 12 AND 16 THEN 'Daytime (12-16)'
+        WHEN EXTRACT(HOUR FROM rental_date) BETWEEN 17 AND 21 THEN 'Evening (17-21)'
+        ELSE 'Nighttime (22-05)'
+        END AS time_of_day,
+           
+        COUNT(rental_id) AS total_rentals
+    FROM rental
+    GROUP BY time_of_day, rental_hour
+    ORDER BY rental_hour
+
+```
+
+## Analyzing rental hours
+Choose time of day
+<Dropdown 
+    data={rentals} 
+    name=selected_time
+    value=time_of_day
+    title="Time of day:" 
+    defaultValue="Morning(06-11)">
+</Dropdown>
+
+<LineChart
+data={rentals}
+x = total_rentals
+y = rental_hours
+filter = {time_of_day === inputs.selected_time}
+title = {`Rentals per hour: ${inputs.selected_time}`}
+/>
+
+
 ### Top customers:
 These customers are the top 5 who`s spent most money on renting films from our store. 
 ```top_customers
