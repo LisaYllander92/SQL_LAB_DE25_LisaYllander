@@ -1,1 +1,1 @@
-FROM staging.payment;
+FROM staging.payment

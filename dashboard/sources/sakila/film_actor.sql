@@ -1,1 +1,1 @@
-FROM staging.film_actor;
+FROM staging.film_actor

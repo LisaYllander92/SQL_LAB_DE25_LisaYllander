@@ -1,1 +1,1 @@
-FROM staging.category;
+FROM staging.category

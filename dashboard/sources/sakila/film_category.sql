@@ -1,1 +1,1 @@
-FROM staging.film_category;
+FROM staging.film_category

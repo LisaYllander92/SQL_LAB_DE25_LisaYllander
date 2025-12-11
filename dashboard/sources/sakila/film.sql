@@ -1,1 +1,1 @@
-FROM staging.film;
+FROM staging.film

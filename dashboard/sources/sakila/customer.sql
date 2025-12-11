@@ -1,1 +1,1 @@
-FROM staging.customer;
+FROM staging.customer

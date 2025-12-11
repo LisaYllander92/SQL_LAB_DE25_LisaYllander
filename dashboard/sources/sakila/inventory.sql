@@ -1,1 +1,1 @@
-FROM staging.inventory;
+FROM staging.inventory

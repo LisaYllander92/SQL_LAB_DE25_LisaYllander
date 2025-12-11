@@ -1,1 +1,1 @@
-FROM staging.actor;
+FROM staging.actor
