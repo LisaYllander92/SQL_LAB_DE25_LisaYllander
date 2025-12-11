@@ -1,1 +1,1 @@
-FROM staging.rental
+from staging.rental

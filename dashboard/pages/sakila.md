@@ -1,9 +1,16 @@
-# SQL LAB explorating sakila database
+---
+title: Explorating sakila database
+--- 
 
-## Films in sakila
+<Details title='Information'>
+
+  In this page you will find some of the EDA based on the Sakila database. There are statistcs focusing on film properties, top actors, top movie categorys and customers etc. 
+</Details>
+
 
 ### Movies longer than 3 hours:
-```sql film_length
+Showing film title and length of the movie in minutes.
+```film_length
     SELECT title, length as length_in_minutes
     FROM film
     WHERE length > 180
@@ -11,7 +18,8 @@
 ```
 
 ### Movies with the word "LOVE" in title:
-```sql film_title
+Here you can see which movies has the word "LOVE" in the title, rating of the movie, length and description.
+```film_title
     SELECT title, rating, length, description
     FROM film
     WHERE title ILIKE '% love %' 
@@ -20,7 +28,8 @@
 ```
 
 ### Desctiptive statistics on movies length:
-```sql film_statistics
+Some statistics on length, showing the shortes, average, mean and longest movie. 
+```film_statistics
 SELECT
     MIN(length) AS Shortest_movie_length,
     ROUND(AVG(length)) AS Average_movie_length,
@@ -30,7 +39,7 @@ SELECT
 ```
 
 ### Top 10 most expensive movies to rent per day:
-```sql rental_rate
+```rental_rate
 SELECT title, 
     rental_rate,
     rental_duration,
@@ -41,7 +50,8 @@ SELECT title,
 ```
 
 ### Top 10 actors played in most movies:
-```sql actors
+Showing how many films each actor has been in.
+```actors
 SELECT actor,
 COUNT(film_id) as number_films
 FROM actors
@@ -51,7 +61,7 @@ LIMIT 10
 ```
 
 ### Top 5 most rented movie categorys:
-```sql top_categorys
+```top_categorys
     SELECT
         category,
          ROUND(((CAST(COUNT(rental_id) AS DOUBLE) * 100.0) / (
@@ -64,7 +74,9 @@ LIMIT 10
     ORDER BY percentage_rental DESC
     LIMIT 5
 ```
-### Top 5 customers:
+
+### Top customers:
+These customers are the top 5 who`s spent most money on renting films from our store. 
 ```top_customers
     SELECT 
         customer,
@@ -76,11 +88,24 @@ LIMIT 10
 ```
 <BarChart
     data={top_customers}
-    title="Top 5 customers measured by total amount spent"
     x=customer
     y=total_spent_USD
 />
 
+### Most profitable film category:
+Categories and how must money they bring in. This also shows which genres are the most populare among customers. 
+```film_category
+    SELECT
+        category,
+        ROUND(SUM(amount)) as total_revenue
+    FROM film_category
+    GROUP BY category
+    ORDER BY total_revenue DESC
+```
 
-
-
+<BarChart
+data={film_category}
+title="Money each film category bring in"
+x=category
+y=total_revenue
+/>
