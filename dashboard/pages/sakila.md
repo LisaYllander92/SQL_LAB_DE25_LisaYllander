@@ -2,7 +2,5 @@
 
 ## Films in sakila
 
-```sql films
-
-  from sakila.sakila
-  ```
+```sql 
+```
