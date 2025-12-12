@@ -8,16 +8,16 @@ title: Explorating sakila database
 </Details>
 
 
-### Movies longer than 3 hours:
+## Movies longer than 3 hours
 Showing film title and length of the movie in minutes.
-```film_length
+```sql film_length
     SELECT title, length as length_in_minutes
     FROM film
     WHERE length > 180
     ORDER BY length DESC
 ```
 
-### Movies with the word "LOVE" in title:
+## Movies with the word "LOVE" in title
 Here you can see which movies has the word "LOVE" in the title, rating of the movie, length and description.
 ```film_title
     SELECT title, rating, length, description
@@ -27,7 +27,7 @@ Here you can see which movies has the word "LOVE" in the title, rating of the mo
     OR title ILIKE '% love'
 ```
 
-### Desctiptive statistics on movies length:
+## Desctiptive statistics on movies length
 Some statistics on length, showing the shortes, average, mean and longest movie. 
 ```film_statistics
 SELECT
@@ -38,7 +38,7 @@ SELECT
     FROM film
 ```
 
-### Top 10 most expensive movies to rent per day:
+## Top 10 most expensive movies to rent per day
 ```rental_rate
 SELECT title, 
     rental_rate,
@@ -49,7 +49,7 @@ SELECT title,
     LIMIT 10
 ```
 
-### Top 10 actors played in most movies:
+## Top 10 actors played in most movies
 Showing how many films each actor has been in.
 ```actors
 SELECT actor,
@@ -60,7 +60,7 @@ ORDER BY number_films DESC
 LIMIT 10
 ```
 
-### Top 5 most rented movie categorys:
+## Top 5 most rented movie categorys
 ```top_categorys
     SELECT
         category,
@@ -75,20 +75,16 @@ LIMIT 10
     LIMIT 5
 ```
 
-## Time of day 
+## Analyzing rental hours
+Here I wanted to show what time of day is the most busy by dividing the time of day into categories and also visualize this with a linechart. 
 ```sql rental
 from rent
 ```
 
-```sql test
-select * from rental
-```
-
-### Analyzing rental hours
 <Dropdown
 data={rental} 
-name="selected_time"
-value="time_of_day"
+name=selected_time
+value=time_of_day
 title="Time of day:"
 defaultValue="Morning (06-11)">
 </Dropdown>
@@ -106,10 +102,10 @@ ORDER BY rental_hour
     data={rental_time}
     x=rental_time
     y=total_rentals
-    title={`Rentals per hour: ${inputs.selected_time}`}
+    title={`Rentals per hour: ${inputs.selected_time.value}`}
 />
 
-### Top customers:
+## Top customers
 These customers are the top 5 who`s spent most money on renting films from our store. 
 ```top_customers
     SELECT 
@@ -126,7 +122,7 @@ These customers are the top 5 who`s spent most money on renting films from our s
     y=total_spent_USD
 />
 
-### Most profitable film category:
+## Most profitable film category
 Categories and how must money they bring in. This also shows which genres are the most populare among customers. 
 ```film_category
     SELECT
@@ -139,7 +135,6 @@ Categories and how must money they bring in. This also shows which genres are th
 
 <BarChart
 data={film_category}
-title="Money each film category bring in"
 x=category
 y=total_revenue
 />
