@@ -4,7 +4,7 @@ title: Explorating sakila database
 
 <Details title='Information'>
 
-  In this page you will find some of the EDA based on the Sakila database. There are statistcs focusing on film properties, top actors, top movie categorys and customers etc. 
+  In this report you will find some of the EDA based on the Sakila database. There are statistcs focusing on film properties, top actors, top movie categorys and customers etc. 
 </Details>
 
 
